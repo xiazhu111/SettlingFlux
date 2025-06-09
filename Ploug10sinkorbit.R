@@ -17,13 +17,13 @@ Ploug10sinkorbit = function(x1,y1,T1,pf) { #enter 1/rotation rate (s) here
   #    8, 386-393, 2010. DOI 10:4319/lom.2010.8.386
   #
   # input:
-  #   x1   array of x-coordinates of particles (mm)
-  #   y1   array of y-coordinates of particles (mm)
+  #   x1   array of x-coordinates of particles (mm) *for a single aggregate b/c only
+  #   y1   array of y-coordinates of particles (mm) *one sinking velocity is outputted
   #        remarks: 
   #          1. Origin of coordinate system at rotation
   #             axis of the roller tank; x = horizontal;
   #             y = vertical 
-  #          2. x1 and y1 must have the same length
+  #          2. x1 and y1 arrays must have the same length
   #   T1   rotation period (s)
   #   pf   plot-flag: p = 0 <-> no plot; 
   #                   p = 1 <-> plot data, orbit, optimal values
@@ -107,5 +107,6 @@ Ploug10sinkorbit = function(x1,y1,T1,pf) { #enter 1/rotation rate (s) here
   return(out)
 }
 
-#x1 = array, y2 = array, period (s) = 200, yes generate plot 
-Ploug10sinkorbit(c(1,2,3,4),c(1,2,3,4),200,1)
+#Particle 1, Week 1 LDPE Tank 
+#x1 = array (mm), y2 = array (mm), period (s) = 31.78, 0 = no plot
+Ploug10sinkorbit(c(1,2,3,4),c(1,2,3,4),200,0)
