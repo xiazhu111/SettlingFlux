@@ -27,7 +27,7 @@ plot(depth,conc,pch=16)
 lines(depthvalues,predict.exponential,lwd=2,col="red",xlab="depth (m)",ylab="concentration (#/L)")
 
 #flip the chart 
-data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/1 Microplastics in OMZ, Eastern Tropical North Pacific/Data Analysis/HypotheticalDepthProfilesforR.xlsx")
+data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/1 Microplastics in OMZ, Eastern Tropical North Pacific/Data Analysis/Coding, Plot Making Practice/HypotheticalDepthProfilesforR.xlsx")
 my.formula = y ~ log(x)
 data$station <- as.factor(data$station) #convert continuous into categorical variable
 #plot
@@ -35,10 +35,30 @@ ggplot(data=data, aes(x=conc,y=depth)) +
   geom_point(aes(color=station),size=3) + 
   facet_grid(~station) + 
   scale_y_reverse(limits=c(1500,0)) +
-  geom_smooth(formula=my.formula,method="lm",se=FALSE,color="black") + #T,level=0.95,color="black")+
+  #geom_smooth(formula=my.formula,method="lm",se=FALSE,color="black") + #T,level=0.95,color="black")+
   labs(x = "Concentration (#/L)",y = "Depth (m)") +
   theme_bw() +
   theme(axis.text = element_text(size=20),
         axis.title = element_text(size=25),
         legend.text = element_text(size=20),
         legend.title = element_text(size=20))
+
+#logged
+ggplot(data=data, aes(x=log(conc),y=log(depth))) + 
+  geom_point(aes(color=station),size=3) + 
+  facet_grid(~station) + 
+  scale_y_reverse(limits=c(10,0)) +
+  geom_smooth(method=lm,se=T, level=0.95,color="black") +
+  labs(x = "log(Concentration[#/L])",y = "log(Depth[m])") +
+  theme_bw() +
+  theme(axis.text = element_text(size=20),
+        axis.title = element_text(size=25),
+        legend.text = element_text(size=20),
+        legend.title = element_text(size=20))
+
+#getting R^2 value for equation, log(conc) = b*log(depth) + a
+stn1_hypothetical <- lm(log(conc)~log(depth),data)
+a = format(unname(coef(stn1_hypothetical)[1]),digits=2)
+b = format(unname(coef(stn1_hypothetical)[2]),digits=2)
+r2 = format(summary(stn1_hypothetical)$r.squared,digits=3)
+paste("log(conc) = ",a, "+ ", b, "*log(depth)")
