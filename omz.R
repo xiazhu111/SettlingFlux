@@ -62,3 +62,8 @@ a = format(unname(coef(stn1_hypothetical)[1]),digits=2)
 b = format(unname(coef(stn1_hypothetical)[2]),digits=2)
 r2 = format(summary(stn1_hypothetical)$r.squared,digits=3)
 paste("log(conc) = ",a, "+ ", b, "*log(depth)")
+
+#random number generator
+x <- 1:51
+t <- sample(x,15,replace=FALSE)
+t
