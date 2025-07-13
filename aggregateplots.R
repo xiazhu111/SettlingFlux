@@ -60,3 +60,22 @@ data2$Treatment <- as.factor(data2$Treatment)
 kruskal.test(dv ~ Treatment, data = data2) #at least one pair is significant as p < 0.05
 ans <- kwManyOneDunnTest(dv ~ Treatment, data = data2) #nonparametric equivalent of Tukey HSD
 summary(ans) #LDPE neg & control, LDPE pos & control, PVC & control
+
+#Aggregate POC (mg/aggregate)
+data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Settling and Aggregation Experiments/Methods/8 Making Plots/AggregatePOC.xlsx")
+head(data)
+data$SizeClass <- factor(data$SizeClass, levels = c("1-2","2-4","4-8","8-16","> 16"))
+
+#aggregate number
+data %>%
+  ggplot(aes(x=SizeClass,y=POCperaggregate,group=Treatment,color=Treatment)) +
+  geom_line() +
+  geom_point(size=3) +
+  theme_ipsum(base_size=22) +
+  ggtitle("Aggregate POC") + xlab("Size Class (mm)") + ylab("POC (mg/aggregate)") +
+  theme(axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        plot.title = element_text(size=25)) +
+  scale_color_viridis(discrete = TRUE) +
+  geom_errorbar(aes(x=SizeClass,ymin=POCperaggregate-SD,ymax=POCperaggregate+SD),width=0.1,color="black",size=0.01) +
+  ylim(0,2.5)
