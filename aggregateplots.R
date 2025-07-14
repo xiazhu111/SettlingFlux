@@ -8,12 +8,12 @@ library(car)
 library(PMCMRplus)
 library(ggsignif)
 
+#aggregate number 
 #load dataset
 data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Settling and Aggregation Experiments/Methods/8 Making Plots/AggregateNumber.xlsx")
 head(data)
 data$SizeClass <- factor(data$SizeClass, levels = c("1-2","2-4","4-8","8-16","> 16"))
 
-#aggregate number
 data %>%
   ggplot(aes(x=SizeClass,y=Number,group=Treatment,color=Treatment)) +
   geom_line() +
@@ -66,7 +66,6 @@ data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Se
 head(data)
 data$SizeClass <- factor(data$SizeClass, levels = c("1-2","2-4","4-8","8-16","> 16"))
 
-#aggregate number
 data %>%
   ggplot(aes(x=SizeClass,y=POCperaggregate,group=Treatment,color=Treatment)) +
   geom_line() +
@@ -79,3 +78,20 @@ data %>%
   scale_color_viridis(discrete = TRUE) +
   geom_errorbar(aes(x=SizeClass,ymin=POCperaggregate-SD,ymax=POCperaggregate+SD),width=0.1,color="black",size=0.01) +
   ylim(0,2.5)
+
+#Aggregate MP:cell
+data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Settling and Aggregation Experiments/Methods/8 Making Plots/AggregateMPCell.xlsx")
+head(data)
+data$SizeClass <- factor(data$SizeClass, levels = c("1-2","2-4","4-8","8-16","> 16"))
+
+data %>%
+  ggplot(aes(x=SizeClass,y=MPCell,group=Treatment,color=Treatment)) +
+  geom_line() +
+  geom_point(size=3) +
+  theme_ipsum(base_size=22) +
+  ggtitle("Aggregate Cell-to-MP Ratio") + xlab("Size Class (mm)") + ylab("Cell:MP") +
+  theme(axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        plot.title = element_text(size=25)) +
+  scale_color_viridis(discrete = TRUE) +
+  geom_errorbar(aes(x=SizeClass,ymin=MPCell-SD,ymax=MPCell+SD),width=0.1,color="black",size=0.01)
