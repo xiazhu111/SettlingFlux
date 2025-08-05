@@ -107,6 +107,6 @@ Ploug10sinkorbit = function(x1,y1,T1,pf) { #enter 1/rotation rate (s) here
   return(out)
 }
 
-#Particle 1, Week 1 LDPE Tank 
-#x1 = array (mm), y2 = array (mm), period (s) = 31.78, 0 = no plot
+#Particle 1, > 16 mm, length =29.155 mm, Week 1 LDPE Tank 
+#x1 = array (mm), y2 = array (mm), period (s) = 60/rpm, 0 = no plot
 Ploug10sinkorbit(c(1,2,3,4),c(1,2,3,4),200,0)
