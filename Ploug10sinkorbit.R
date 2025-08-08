@@ -107,8 +107,6 @@ Ploug10sinkorbit = function(x1,y1,T1,pf) { #enter 1/rotation rate (s) here
   return(out)
 }
 
-library(readxl)
-data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Settling and Aggregation Experiments/Methods/7 Data Analysis/Aggregate Properties Workbooks - Results/sinkingvelocities.xlsx")
 #Particle 1, > 16 mm, length = 29.155 mm, Week 1 LDPE Tank
 #x1 = array (mm), y2 = array (mm), period (s) = 60/rpm, 0 = no plot
 Ploug10sinkorbit(data$x1,data$y1,60/1.89,1)
@@ -124,3 +122,9 @@ Ploug10sinkorbit(na.omit(data$x5),na.omit(data$y5),60/1.89,1)
 Ploug10sinkorbit(na.omit(data$x6),na.omit(data$y6),60/1.89,1)
 #Particle 7, 2-4 mm, length = 2.284 mm, Week 1 LDPE Tank
 Ploug10sinkorbit(na.omit(data$x7),na.omit(data$y7),60/1.89,1)
+#Particle 8, 1-2 mm, length = 0.977 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x8),na.omit(data$y8),60/1.89,1)
+#Particle 8, 2-4 mm, length = 3.184 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x9),na.omit(data$y9),60/1.89,1)
+library(readxl)
+data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Settling and Aggregation Experiments/Methods/7 Data Analysis/Aggregate Properties Workbooks - Results/sinkingvelocities.xlsx")
