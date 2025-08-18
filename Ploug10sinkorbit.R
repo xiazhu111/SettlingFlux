@@ -124,7 +124,25 @@ Ploug10sinkorbit(na.omit(data$x6),na.omit(data$y6),60/1.89,1)
 Ploug10sinkorbit(na.omit(data$x7),na.omit(data$y7),60/1.89,1)
 #Particle 8, 1-2 mm, length = 0.977 mm, Week 1 LDPE Tank
 Ploug10sinkorbit(na.omit(data$x8),na.omit(data$y8),60/1.89,1)
-#Particle 8, 2-4 mm, length = 3.184 mm, Week 1 LDPE Tank
+#Particle 9, 2-4 mm, length = 3.184 mm, Week 1 LDPE Tank, positively buoyant
 Ploug10sinkorbit(na.omit(data$x9),na.omit(data$y9),60/1.89,1)
+#Particle 10, 4-8 mm, length = 5.728 mm, Week 1 LDPE Tank, positively buoyant
+Ploug10sinkorbit(na.omit(data$x10),na.omit(data$y10),60/1.89,1)
+#Particle 11, 2-4 mm, length = 2.247 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x11),na.omit(data$y11),60/1.89,1)
+#Particle 12, 1-2 mm, length = 1.122 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x12),na.omit(data$y12),60/1.89,1)
+#Particle 13, 1-2 mm, length = 1.285 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x13),na.omit(data$y13),60/1.89,1)
+#Particle 14, 4-8 mm, length = 6.332 mm, Week 1 Control Tank
+Ploug10sinkorbit(na.omit(data$x14),na.omit(data$y14),60/1.89,1)
+#Particle 15, 4-8 mm, length = 4.585 mm, Week 1 Control Tank
+Ploug10sinkorbit(na.omit(data$x15),na.omit(data$y15),60/1.89,1)
+#Particle 16, 4-8 mm, length = 4.388 mm, Week 1 Control Tank
+Ploug10sinkorbit(na.omit(data$x16),na.omit(data$y16),60/1.89,1)
 library(readxl)
 data <- read_excel("C:/Users/Alice/Desktop/Alice/Postdoc 2024-2026/Research/2 Settling and Aggregation Experiments/Methods/7 Data Analysis/Aggregate Properties Workbooks - Results/sinkingvelocities.xlsx")
+#Particle 17, 1-2 mm, length = 1.442 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x17),na.omit(data$y17),60/1.89,1)
+#Particle 18, 1-2 mm, length = 1.904 mm, Week 1 LDPE Tank
+Ploug10sinkorbit(na.omit(data$x18),na.omit(data$y18),60/1.89,1)
